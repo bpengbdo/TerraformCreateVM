@@ -39,3 +39,9 @@ variable "admin_username" {
   type = string
   default = ""
 }
+
+variable "address_prefixes" {
+  description = "Address prefixes"
+  type = array
+  default = []
+}
