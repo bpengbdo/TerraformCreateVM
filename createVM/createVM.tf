@@ -23,7 +23,7 @@ resource "azurerm_subnet" "terraformSubnet" {
   name                 = var.subnet_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = var.virtual_network_name
-  address_prefixes     = ["10.0.0.0/24"]
+  address_prefixes     = var.address_prefixes
 }
 
 resource "azurerm_network_interface" "terraformNIC" {
