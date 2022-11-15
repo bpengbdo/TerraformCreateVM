@@ -42,6 +42,6 @@ variable "admin_username" {
 
 variable "address_prefixes" {
   description = "Address prefixes"
-  type = list
+  type = "list"
   default = []
 }
