@@ -13,7 +13,7 @@ module "create-virtual-machine" {
 module "create-virtual-machine2" {
     source = "./createVM"
 
-    resource_group_name  = "terraformRG2"
+    resource_group_name  = "terraformRG"
     location             = "eastus"
     virtual_network_name = "terraformVN2"
     subnet_name          = "terraformSubnet2"
