@@ -16,8 +16,8 @@ module "create-virtual-machine2" {
     resource_group_name  = "terraformRG"
     location             = "eastus"
     virtual_network_name = "terraformVN"
-    subnet_name          = "terraformSubnet2"
-    nic_name             = "terraformNIC2"
+    subnet_name          = "terraformSubnet"
+    nic_name             = "terraformNIC"
     virtual_machine_name = "SecondVM"
     admin_username       = "testuser"
 }
