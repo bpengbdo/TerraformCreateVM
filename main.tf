@@ -21,5 +21,5 @@ module "create-virtual-machine2" {
     nic_name             = "terraformNIC"
     virtual_machine_name = "SecondVM"
     admin_username       = "testuser"
-    address_prefixes     = ["10.0.0.1/24"]
+    address_prefixes     = ["10.0.1.0/24"]
 }
