@@ -7,5 +7,5 @@ module "create-virtual-machine" {
     subnet_name          = "terraformSubnet"
     vm_name              = ["FirstVM", "SecondVM"]
     admin_username       = "testuser"
-    address_prefixes     = ["10.0.0.0/24"]
+    address_prefix       = "10.0.1.0/24"
 }
