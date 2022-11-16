@@ -46,8 +46,3 @@ variable "address_prefixes" {
   default = []
 }
 
-variable "vm_name" {
-  description = "Name of VM"
-  type        = list(string)
-  default     = []
-}
