@@ -40,8 +40,14 @@ variable "admin_username" {
   default = ""
 }
 
-variable "address_prefixes" {
+variable "address_prefix" {
   description = "Address prefixes"
-  type = list(string)
-  default = []
+  type = string
+  default = ""
+}
+
+variable "vm_name" {
+  description = "Name of VM"
+  type        = list(string)
+  default     = []
 }
