@@ -23,11 +23,12 @@ resource "azurerm_subnet" "terraformSubnet" {
   name                 = var.subnet_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = var.virtual_network_name
-  address_prefixes     = var.address_prefixes
+  address_prefix       = var.address_prefix
 }
 
 resource "azurerm_network_interface" "terraformNIC" {
-  name                = var.nic_name
+  for_each            = toset(var.vm_name)
+  name                = each.value
   resource_group_name = var.resource_group_name
   location            = var.location
 
@@ -39,7 +40,8 @@ resource "azurerm_network_interface" "terraformNIC" {
 }
 
 resource "azurerm_linux_virtual_machine" "terraformVM" {
-  name                = var.virtual_machine_name
+  for_each            = toset(var.vm_name)
+  name                = each.value
   resource_group_name = var.resource_group_name
   location            = var.location
   size                = "Standard_DS1_v2"
