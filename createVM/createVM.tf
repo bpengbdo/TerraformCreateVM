@@ -20,10 +20,11 @@ resource "tls_private_key" "example_ssh" {
 }
 
 resource "azurerm_subnet" "terraformSubnet" {
+  for_each             = toset(var.address_prefixes)
   name                 = var.subnet_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = var.virtual_network_name
-  address_prefix       = var.address_prefix
+  address_prefixes     = [each.value]
 }
 
 resource "azurerm_network_interface" "terraformNIC" {
