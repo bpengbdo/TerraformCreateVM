@@ -20,34 +20,31 @@ resource "tls_private_key" "example_ssh" {
 }
 
 resource "azurerm_subnet" "terraformSubnet" {
-  for_each             = toset(var.vm_name)
-  name                 = each.value
+  name                 = var.subnet_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = var.virtual_network_name
   address_prefixes     = var.address_prefixes
 }
 
 resource "azurerm_network_interface" "terraformNIC" {
-  for_each            = toset(var.vm_name)
-  name                = each.value
+  name                = var.nic_name
   resource_group_name = var.resource_group_name
   location            = var.location
 
   ip_configuration {
     name                          = "terraformIP"
-    subnet_id                     = azurerm_subnet.terraformSubnet[each.value].id
+    subnet_id                     = azurerm_subnet.terraformSubnet.id
     private_ip_address_allocation = "Dynamic"
   }
 }
 
 resource "azurerm_linux_virtual_machine" "terraformVM" {
-  for_each            = toset(var.vm_name)
-  name                = each.value
+  name                = var.virtual_machine_name
   resource_group_name = var.resource_group_name
   location            = var.location
   size                = "Standard_DS1_v2"
   network_interface_ids = [
-    azurerm_network_interface.terraformNIC[each.value].id,
+    azurerm_network_interface.terraformNIC.id,
   ]
   admin_username = var.admin_username
 
