@@ -39,7 +39,7 @@ resource "azurerm_network_interface" "terraformNIC" {
 }
 
 resource "azurerm_linux_virtual_machine" "terraformVM" {
-  name                = var.virtual_machine_name
+  name                = var.nestedTest.name
   resource_group_name = var.resource_group_name
   location            = var.location
   size                = "Standard_DS1_v2"
