@@ -45,3 +45,19 @@ variable "address_prefixes" {
   type = list(string)
   default = ["10.0.0.0/24"]
 }
+
+variable "nestedTest" {
+  type = object({
+    name    = string
+    address = string
+  })
+  default = {
+    name    = "hello"
+    address = "address"
+  }
+}
+variable "booleanTest" {
+  description = "If set to true, it will create vm"
+  type        = bool
+  default     = false
+}
