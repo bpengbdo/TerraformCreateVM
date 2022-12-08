@@ -6,7 +6,7 @@ module "create-virtual-machine" {
     virtual_network_name = var.virtual_network_name
     subnet_name          = var.subnet_name
     nic_name             = var.nic_name
-    virtual_machine_name = var.virtual_machine_name
+    virtual_machine_name = var.virtual_machine_name # var.nestedTest.name
     admin_username       = var.admin_username
     address_prefixes     = var.address_prefixes
     
