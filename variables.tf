@@ -61,3 +61,27 @@ variable "booleanTest" {
   type        = bool
   default     = false
 }
+
+variable "thirdNest" {
+  description = "nest test"
+  type = object({
+    a = object({
+      b = object({
+        c = object({
+          d = string
+        })
+      })
+    })
+    e = string
+  })
+  default = {
+    a = {
+      b = {
+        c = {
+          d = "hi"
+        }
+      }
+    }
+    e = "somestring"
+  }
+}
